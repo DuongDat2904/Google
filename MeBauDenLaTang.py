@@ -24,14 +24,14 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 service = create_service(CLIENT_SECRET_FILE, API_SERVICE_NAME, API_VERSION, SCOPES)
 
 
-spreadsheet_id = '1_1EsN1VACr8RtFWdGlIOnDW3qvHMEOCaYB20UcbWdiQ'
+spreadsheet_id = '1heYhxNfbXNDTu0fs_fzIucGX_sAbxOHcmtlNXI16sSE'
 mySpreadsheets = service.spreadsheets().get(spreadsheetId=spreadsheet_id).execute()
 
-worksheetname_list = ['data_do_phu_Store','data_do_phu_ASM']
+worksheetname_list = ['MeBauDenLaTang']
 
 db = Database()
 query="""
-EXEC USP_KIDS_DoPhuHangHoa_Ngay '20230411','20230411'
+EXEC RPT_QUA_TANG '2023-04-11','2023-04-11' 
 """
 
 dataframes = db.run_query_multi_tables(query)
@@ -48,13 +48,13 @@ for x in range(len(dataframes)):
 
     columns = df.columns.tolist() 
     #Insert Header row
-    # request_body_columns = construct_request_body([columns])
-    # service.spreadsheets().values().update(
-    #     spreadsheetId=spreadsheet_id,
-    #     valueInputOption='USER_ENTERED',
-    #     range=f'{worksheetname_list[x]}!A1',
-    #     body=request_body_columns
-    # ).execute()
+    request_body_columns = construct_request_body([columns])
+    service.spreadsheets().values().update(
+        spreadsheetId=spreadsheet_id,
+        valueInputOption='USER_ENTERED',
+        range=f'{worksheetname_list[x]}!A1',
+        body=request_body_columns
+    ).execute()
     # Determine the number of rows already in the sheet
     response = service.spreadsheets().values().get(
         spreadsheetId=spreadsheet_id,
