@@ -9,13 +9,13 @@ class Database:
     def init_connection():
         return pyodbc.connect(
             "DRIVER={ODBC Driver 17 for SQL Server};SERVER="
-            + '192.168.10.120'
+            + ''
             + ";DATABASE="
             + 'BASE'
             + ";UID="
             + 'UserReport'
             + ";PWD="
-            + 'EAQ5X8dPFuGuvvS6'
+            + ''
         )    
       
     def run_query(_self, query):
