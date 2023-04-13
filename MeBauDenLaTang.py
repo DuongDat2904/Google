@@ -31,7 +31,7 @@ worksheetname_list = ['MeBauDenLaTang']
 
 db = Database()
 query="""
-EXEC RPT_QUA_TANG '2023-04-11','2023-04-11' 
+EXEC RPT_QUA_TANG '2023-04-12','2023-04-12'
 """
 
 dataframes = db.run_query_multi_tables(query)

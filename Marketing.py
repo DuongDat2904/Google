@@ -31,7 +31,7 @@ worksheetname_list = ['data_Marketing']
 
 db = Database()
 query="""
-EXEC USP_KIDS_BCTongHopCTKM '20230101','20230411'
+EXEC USP_KIDS_BCTongHopCTKM '20230101','20230412'
 """
 
 dataframes = db.run_query_multi_tables(query)
