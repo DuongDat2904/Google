@@ -32,7 +32,7 @@ worksheetname_list = ['nk_xk_tk_1','nk_xk_tk_2','nk_xk_tk_3']
 
 db = Database()
 query="""
-EXEC USP_KIDS_LayDuLieuKhoTong '20230412','20230412'
+EXEC USP_KIDS_LayDuLieuKhoTong '20230414','20230414'
 """
 
 dataframes = db.run_query_multi_tables(query)
